@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 html {
-  @apply bg-dark text-white tracking-wider;
+  @apply bg-dark text-white tracking-wider text-base lg:text-lg;
 }
