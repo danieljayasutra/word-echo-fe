@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-screen flex items-end px-[5%] lg:px-[10%]">
-    <div class="w-full h-screen flex flex-col justify-between gap-5 py-[20%] lg:py-[15%]">
+    <div class="w-full h-screen flex flex-col justify-between gap-5 py-[20%] lg:pb-[15%] lg:pt-[5%]">
       <div class="flex justify-center lg:justify-start">
         <div class="w-[150px] lg:w-[200px]">
           <img src="../assets/word-echo.svg" alt="" />
@@ -38,8 +38,17 @@
             <div class="space-y-3">
               <div class="text-cyan text-xl font-bold">{{ textLevel }}</div>
               <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
-                Atque, consequatur! Enim aliquam repudiandae explicabo.
+                <div v-if="level === 'easy'">
+                  Sentences use basic vocabulary and simple sentence structures. These are sentences that are easily understood by beginner-level
+                  language learners.
+                </div>
+                <div v-if="level === 'medium'">
+                  Sentences contain slightly more complex vocabulary and longer structures. These are suitable for intermediate language learners.
+                </div>
+                <div v-if="level === 'hard'">
+                  Sentences use advanced vocabulary and more complex structures. These often include less common words or more formal expressions,
+                  making them harder to understand for beginner or intermediate learners.
+                </div>
               </div>
             </div>
             <div class="flex justify-center lg:justify-start">

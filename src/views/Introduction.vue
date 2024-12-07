@@ -20,7 +20,7 @@
               </div>
             </div>
             <div class="flex justify-center">
-              <button @click="$router.push('/choose-level')" class="bg-orange px-10 lg:px-32 text-black rounded-xl py-4 text-2xl font-bold">
+              <button @click="$router.replace('/choose-level')" class="bg-orange px-10 lg:px-32 text-black rounded-xl py-4 text-2xl font-bold">
                 Play
               </button>
             </div>
@@ -41,3 +41,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+sessionStorage.clear();
+</script>
