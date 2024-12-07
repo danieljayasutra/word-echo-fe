@@ -45,7 +45,7 @@
             <div class="bg-white w-[5px] h-full"></div>
           </div>
           <div class="col-span-12 lg:col-span-5 space-y-5 text-center lg:text-left">
-            <div class="font-bold text-lg">List of Your Answers</div>
+            <div class="font-bold text-lg">List of Quizzes</div>
             <div v-for="(val, idx) in quizFinished" :key="idx" class="flex gap-3 items-center border-b pb-2 border-gray-500">
               <div>{{ idx + 1 }})</div>
               <div class="flex-grow">{{ val.sentence }}</div>
