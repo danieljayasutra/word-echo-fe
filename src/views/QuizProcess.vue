@@ -7,7 +7,7 @@
         </div>
         <div class="text-right">
           <div class="capitalize text-2xl font-bold text-cyan">{{ textLevel }}</div>
-          <div class="text-base tracking-widest">Challenge {{ quizFinished.length }}/3</div>
+          <div class="text-base tracking-widest">Challenge {{ quizFinished.length }}/{{ totalLimit }}</div>
         </div>
       </div>
       <div class="lg:px-[20%]" v-if="quiz">
@@ -27,7 +27,7 @@
                 </svg>
               </div>
             </div>
-            <div>
+            <div class="flex-grow">
               <div class="text-xl mb-5">Listen to the audio and type what you hear</div>
               <div>
                 <AudioPlayer ref="playerRef" :audioSrc="audioUrl"></AudioPlayer>
@@ -109,11 +109,15 @@ function getQuizFinished() {
 }
 getQuizFinished();
 
+function getIds(data) {
+  return data.map((item) => item.id);
+}
+
 async function obtainQuiz() {
   catcher(async () => {
     const responseQuiz = await axiosApi.post('/quiz/obtain', {
       difficulty: level.value,
-      excludedIds: [],
+      excludedIds: getIds(quizFinished.value || []),
     });
     quiz.value = responseQuiz?.data;
     const responseAudio = await axiosApi.post(
